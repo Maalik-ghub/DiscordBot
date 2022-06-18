@@ -51,7 +51,7 @@ if (user.bot) return message.channel.send({embeds: [botembed]})
 
 if(args[0] === `Malika`) {
 
-     const merlin = await guild.members.fetch('606066358337404929');
+     const merlin = await guild.members.fetch('594218185298018308');
 
     if(!merlin.user.id) return;
 
@@ -59,14 +59,14 @@ if(args[0] === `Malika`) {
 
         const merlinkissEmbed = new discord.MessageEmbed()
    .setColor([227, 114, 237])
-   .setAuthor("Merli is kissing me 🤞😍 ")
+   .setAuthor("Kwolloo is kissing me 🤞😍 ")
    .setImage(kiss[result])
 
         message.channel.send({embeds: [merlinkissEmbed]})
         return;
 
     } else {
-    message.channel.send("You are not merlin, Back off.");
+    message.channel.send("You are not Kwolloo, Back off.");
         return;
     }
 }
