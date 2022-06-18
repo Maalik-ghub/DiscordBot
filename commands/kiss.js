@@ -49,7 +49,7 @@ if (user.bot) return message.channel.send({embeds: [botembed]})
 
   let result = Math.floor((Math.random() * kiss.length));
 
-if(args[0] === `Malika`) {
+if(args[0] === `Noelle` || `noelle`) {
 
      const merlin = await guild.members.fetch('594218185298018308');
 
