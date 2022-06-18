@@ -18,10 +18,10 @@ const noReactionPerms = new discord.MessageEmbed()
 .setDescription(`<a:AE_Failed:976848289691488316> Please Enable **ADD_REACTIONS** Pemission For Me`)
 if (!message.channel.permissionsFor(message.client.user).has("ADD_REACTIONS")) return message.channel.send({embeds: [noReactionPerms]});
 
-message.react('<a:AE_Done:976848494205759508>')
+message.react('✅')
 
 const user = message.member.user
-const member = guild.members.cache.get(user.id) 
+const member = guild.members.cache.get(user.id)
 
 const exampleEmbed3 = new discord.MessageEmbed()
     .setColor([227, 114, 237])

@@ -37,7 +37,7 @@ if(data) {
 client.on("ready" , () => {
 console.log(`I Have Logged In As ${client.user.username}`);
  setInterval(() => {
-     client.user.setActivity(`>help │ Watching ${client.guilds.cache.size} Servers.`)
+     client.user.setActivity(`a!help │ Watching ${client.guilds.cache.size} Servers.`)
  },10000)
 });
 
@@ -62,7 +62,7 @@ client.on("message", async message => {
     if(argsw[1]) return;
     if(!message.content.startsWith(message.mentions.users.first())) return;
     if(message.content.includes("@here") || message.content.includes("@everyone") || message.type == "REPLY") return false;
-    
+
       if(message.mentions.has(client.user.id))
       return message.channel.send(`|| Malika's   **Prefix**   in  __${message.guild.name}__   is   "**${p}**" ||`);
   }
