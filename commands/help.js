@@ -25,8 +25,8 @@ const member = guild.members.cache.get(user.id)
 
 const exampleEmbed3 = new discord.MessageEmbed()
     .setColor([227, 114, 237])
-    .setTitle('<:AE_Crown:974328230813261914> Malika Help')
-    .setDescription(' Developed and controlled by **Malik** <:AE_BotDeveloper:974335417241440256>')
+    .setTitle(`${client.user.username} Help`)
+    .setDescription(' Developed and controlled by **Maalik** ')
     .setFields([
     {name: '\u200b',
     value: '\u200b',
@@ -34,7 +34,10 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Admin',
-    value: '• prefix,• rc-mute,• counting,• afk-remove',
+    value: '• prefix \n 
+• rc-mute, \n 
+• counting, \n 
+• afk-remove',
     },
     {name: '\u200b',
     value: '\u200b',
@@ -42,21 +45,42 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Moderation',
-    value: '• clear ,• ban,• unban,• mute,• unmute,• kick, •warn,• nickreset',
+    value: '• clear , \n
+• ban,\n
+• unban,\n
+• mute,\n
+• unmute,\n
+• kick,\n
+ •warn,\n
+• nickreset',
     },
     {name: '\u200b',
     value: '\u200b',
     inline: false,
     },
     {name: 'Fun ',
-    value: '• 8ball,• roast,• kill,• slap,• punch,• hug,• kiss,• pat,• say',
+    value: '• 8ball,\n
+• roast,\n
+• kill,\n
+• slap,\n
+• punch,\n
+• hug,\n
+• kiss,\n
+• pat,\n
+• say',
     },
     {name: '\u200b',
     value: '\u200b',
     inline: false,
     },
     {name: 'Others ',
-    value: '• ping,• hey,• userinfo,• roles,• avatar,• nick,• afk,• banner',
+    value: '• ping,\n
+• userinfo,\n
+• roles,\n
+• avatar,\n
+• nick,\n
+• afk,\n
+• banner',
     },
     {name: '\u200b',
     value: '\u200b',
