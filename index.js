@@ -37,7 +37,7 @@ if(data) {
 client.on("ready" , () => {
 console.log(`I Have Logged In As ${client.user.username}`);
  setInterval(() => {
-     client.user.setActivity(`a!help │ Watching ${client.guilds.cache.size} Servers.`)
+     client.user.setActivity(`n!help │ Watching ${client.guilds.cache.size} Servers.`)
  },10000)
 });
 
