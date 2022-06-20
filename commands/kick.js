@@ -86,7 +86,7 @@ const noMember = new discord.MessageEmbed()
 .setDescription("Tag A Member To Kick Them")
 if(!userOne) return message.channel.send({embeds: [noMember]})
 
-const memberOne = guild.members.cache.get(userOne.id)
+const memberOne = guild.members.cache.get(userTwo.id)
 
 
 var reason = args.slice(1).join(" ")
@@ -97,14 +97,14 @@ if (!reason) {
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`:x: An error occured while kicking ${userOne.username}`)
+.setDescription(`:x: An error occured while kicking ${userTwo.username}`)
 
 if(!memberOne.kickable) return message.channel.send({embeds: [kickfail]});
 
 const kickdone = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setTitle("Done :white_check_mark:")
-.setDescription(` ${userOne.tag} was kicked by ${message.author.tag} `)
+.setDescription(` ${userTwo.tag} was kicked by ${message.author.tag} `)
 .setFields([
 {name: "Reason For Kick",
 value: `${reason}`,
