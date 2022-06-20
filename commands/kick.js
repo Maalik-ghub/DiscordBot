@@ -40,7 +40,7 @@ if (!reason) {
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`:x: An error occured while banning ${memberTwo.user.username}`)
+.setDescription(`:x: An error occured while kicking ${memberTwo.user.username}`)
 
 if(!memberTwo.kickable) return message.channel.send({embeds: [kickfail]});
 
@@ -97,7 +97,7 @@ if (!reason) {
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`:x: An error occured while banning ${memberOne.user.username}`)
+.setDescription(`:x: An error occured while kicking ${userOne.username}`)
 
 if(!memberOne.kickable) return message.channel.send({embeds: [kickfail]});
 
