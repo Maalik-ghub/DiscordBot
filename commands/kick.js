@@ -121,11 +121,11 @@ value: `${reason}`,
 ]);
 
 try {
+await memberOne.send({embeds: [kickdoneDM]});
 await memberOne.kick()
 } catch (err) {
 return message.channel.send({embeds: [kickfail]});
   }
   message.channel.send({embeds: [kickdone]});
-await memberOne.send({embeds: [kickdoneDM]});
  }
  };
