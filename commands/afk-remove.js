@@ -15,6 +15,12 @@ async execute (message , args) {
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
   if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
 
+const helpEmbed = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`${p}afk-remove [MEMBER-MENTION] \n \n'eg: ${p}afk-remove @Maalik#0568'`)
+if(!args[0]) return message.channel.send({embeds: [helpEmbed]})
+
+
   const user = message.mentions.users.first();
 
   if (!user) return message.channel.send("**:x: ┃ Specify a member**");

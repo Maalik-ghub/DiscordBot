@@ -8,6 +8,8 @@ description: '8ball Command',
 
 async execute (message , args) {
 
+const p = await client.prefix(message)
+
  const { guild, channel } = message
 
                         //PERMISSION CHECKS
@@ -15,8 +17,13 @@ async execute (message , args) {
   if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
   const noNickPerms = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription(`<a:AE_Failed:976848289691488316> Please Enable **MANAGE_NICKNAMES** Pemission For Me`)
+  .setDescription(`Please Enable **MANAGE_NICKNAMES** Pemission For Me`)
   if (!message.channel.permissionsFor(message.client.user).has("MANAGE_NICKNAMES")) return message.channel.send({embeds: [noNickPerms]});
+
+const helpEmbed = new discord.MessageEmbed()
+.setColor([227, 114 ,237])
+.setDescription(`${p}afk [REASON] \n \n'eg: ${p} I'll be right back'`)
+if(!args[0]) return message.channel.send({embeds: [helpEmbed]})
 
   const reason = args.join(" ") || "AFK";
 
@@ -30,7 +37,7 @@ async execute (message , args) {
 
   const afkembed = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription(`<:AE_Crown:974328230813261914> You are now **AFK** in ${message.guild.name} with the status \n \n **${reason}**`)
+  .setDescription(`You are now **AFK** in ${message.guild.name} with the status \n \n **${reason}**`)
 
   message.channel.send({embeds : [afkembed]})
 

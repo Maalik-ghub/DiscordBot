@@ -12,7 +12,7 @@ async execute (message , args) {
    if (!message.member.permissions.has("ADMINISTRATOR")) return;
 
 let count;
-   if(args[0] === `set-channel`){
+   if(args[0] === `enable`){
         let countingChannel;
 
         countingChannel = message.mentions.channels.first();
@@ -29,7 +29,7 @@ let count;
           message.channel.send(`Enabled counting in ${countingChannel}`)
         }
    }
-      if(args[0] === `remove-channel`){
+      if(args[0] === `disable`){
 
     countingChannel = message.mentions.channels.first();
     const data = counting.get(message.guild.id+countingChannel)

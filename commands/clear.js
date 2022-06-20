@@ -9,6 +9,8 @@ description: 'clear Command',
 
 async execute(message, args){
 
+  const p = await client.prefix(message)
+
   const { guild, channel } = message
 
                         //PERMISSION CHECKS
@@ -27,7 +29,7 @@ const member = guild.members.cache.get(user.id)
  let deleteAmount;
  const noDeleteAmount = new discord.MessageEmbed()
  .setColor([227 ,114 ,237])
- .setDescription(`Specify An Amount To Delete`)
+ .setDescription(`${p}clear [AMOUNT] \n \n'eg: ${p}clear 100'`)
  if(!args[0]) return message.channel.send({embeds: [noDeleteAmount]})
 
  if (parseInt(args[0]) < 1 || parseInt(args[0]) > 100 ) {
