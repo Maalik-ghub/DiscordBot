@@ -44,7 +44,7 @@ if (!reason) {
  const higherRole = new discord.MessageEmbed()
  .setColor([227, 114, 237])
  .setDescription(`You can't ban ${memberTwo.user.username}`)
-if(memberTwo.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
+if(memberTwo.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
@@ -96,7 +96,7 @@ message.channel.send({embeds: [kickdone]});
   const higherRole = new discord.MessageEmbed()
   .setColor([227, 114, 237])
   .setDescription(`You can't ban ${memberOne.user.username}`)
- if(memberOne.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
+ if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
  const kickfail = new discord.MessageEmbed()
  .setColor([227, 114, 237])

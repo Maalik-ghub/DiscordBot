@@ -62,7 +62,7 @@ if(!memberTwo) {
 const higherRole = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setDescription(`You can't mute ${memberTwo.user.username}`)
-if(memberTwo.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
+if(memberTwo.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
 console.log(memberTwo.user.username);
 
@@ -135,7 +135,7 @@ setTimeout(function(){
    const higherRole = new discord.MessageEmbed()
    .setColor([227, 114, 237])
    .setDescription(`You can't mute ${memberOne.user.username}`)
-  if(memberOne.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
+  if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
    const noPermMute = new discord.MessageEmbed()
    .setColor([227, 114, 237])
