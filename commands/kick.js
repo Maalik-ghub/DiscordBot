@@ -66,12 +66,12 @@ value: `${reason}`,
 
 
 try {
+await memberTwo.send({embeds: [kickdoneDM]})
 await memberTwo.kick()
 } catch (err) {
 return message.channel.send({embeds: [kickfail]});
   }
   message.channel.send({embeds: [kickdone]});
-  memberTwo.send({embeds: [kickdoneDM]})
 } catch(err) {
   console.log(err)
   const noMemberOne = new discord.MessageEmbed()

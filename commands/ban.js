@@ -64,7 +64,7 @@ value: `${reason}`,
 
 const kickdoneDM = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`You were banned in ${message.guild.name} by ${message.author.tag}`)
+.setDescription(`You were banned from ${message.guild.name} by ${message.author.tag}`)
 .setFields([
 {name: "Reason For Ban",
 value: `${reason}`,
@@ -72,6 +72,7 @@ value: `${reason}`,
 ]);
 
 try {
+await memberTwo.send({embeds: [kickdoneDM]});
 await memberTwo.ban();
 
 } catch (err) {
@@ -80,7 +81,6 @@ return message.channel.send({embeds: [kickfail]});
 }
 
 message.channel.send({embeds: [kickdone]});
-memberTwo.send({embeds: [kickdoneDM]});
 
 } catch(err) {
   const noMemberOne = new discord.MessageEmbed()
@@ -114,7 +114,7 @@ memberTwo.send({embeds: [kickdoneDM]});
 
  const kickdoneDM = new discord.MessageEmbed()
  .setColor([227, 114, 237])
- .setDescription(`You were banned in ${message.guild.name} by ${message.author.tag}`)
+ .setDescription(`You were banned from ${message.guild.name} by ${message.author.tag}`)
  .setFields([
  {name: "Reason For Ban",
  value: `${reason}`,
@@ -123,13 +123,12 @@ memberTwo.send({embeds: [kickdoneDM]});
 
 
  try {
+ await memberOne.send({embeds: [kickdoneDM]})
  await memberOne.ban();
  } catch (err) {
  return message.channel.send({embeds: [kickfail]});
  }
-
  message.channel.send({embeds: [kickdone]});
- memberOne.send({embeds: [kickdoneDM]})
 }
 }
 };
