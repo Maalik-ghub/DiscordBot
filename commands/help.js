@@ -45,7 +45,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Moderation',
-    value: '• clear , \n
+    value: '• clear,\n
 • ban,\n
 • unban,\n
 • mute,\n
