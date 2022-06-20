@@ -15,7 +15,7 @@ if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) r
 if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
 const noReactionPerms = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`<a:AE_Failed:976848289691488316> Please Enable **ADD_REACTIONS** Pemission For Me`)
+.setDescription(`:x: Please Enable **ADD_REACTIONS** Pemission For Me`)
 if (!message.channel.permissionsFor(message.client.user).has("ADD_REACTIONS")) return message.channel.send({embeds: [noReactionPerms]});
 
 message.react('✅')
@@ -25,7 +25,7 @@ const member = guild.members.cache.get(user.id)
 
 const exampleEmbed3 = new discord.MessageEmbed()
     .setColor([227, 114, 237])
-    .setTitle(`${client.user.username} Help`)
+    .setTitle(`Noelle Help`)
     .setDescription(' Developed and controlled by **Maalik** ')
     .setFields([
     {name: '\u200b',
