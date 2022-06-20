@@ -26,7 +26,7 @@ const userTwo = message.mentions.users.first()
 
 const usageEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}ban [USER] [REASON] \n \neg: ||${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw||`)
+.setDescription(`${p}ban [USER] [REASON] \n \neg: \n ||${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw||`)
 if(!userOne) return message.channel.send({embeds: [usageEmbed]});
 
 var reason = args.slice(1).join(" ")
