@@ -34,7 +34,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Admin',
-    value: "• prefix - changes or sets a prefix for the bot in this server. \n • rc-mute - creates a mute role for the server. \n • counting - sets counting channel. \n • afk-remove - removes someone's inappropriate afk.",
+    value: " • prefix - changes or sets a prefix for the bot in this server. \n • rc-mute - creates a mute role for the server. \n • counting - sets counting channel. \n • afk-remove - removes someone's inappropriate afk.",
     },
     {name: '\u200b',
     value: '\u200b',
@@ -42,7 +42,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Moderation',
-    value: "• clear - deletes messages as a bulk.\n• ban - bans a member from this server.\n• unban - unbans a member from this server.\n• mute - mutes a member in this server for a specified time.\n• unmutes a members from this server.\n• kick - kicks a member from this server.\n •warn - warns a member in dms.\n• nickreset - resets inappropriate nicknames of a member.",
+    value: "• clear - deletes messages as a bulk.\n• ban - bans a member from this server.\n• unban - unbans a member from this server.\n• mute - mutes a member in this server for a specified time.\n• unmutes a members from this server.\n• kick - kicks a member from this server.\n•warn - warns a member in dms.\n• nickreset - resets inappropriate nicknames of a member.",
     },
     {name: '\u200b',
     value: '\u200b',
