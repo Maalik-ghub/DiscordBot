@@ -10,6 +10,8 @@ description: "mute commands",
 
 async execute(message , args) {
 
+const p = await client.prefix(message)
+
 const {guild, channel} = message
 
                         //PERMISSION CHECKS
@@ -27,7 +29,7 @@ let userTwo = message.mentions.users.first();
 
 const noUserOneMute = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(` Usage:- \n \n [Prefix]mute [UserID] [Time(s,m,h,d)] [Reason] `)
+.setDescription(`${p}mute [USER] [DURATION] [REASON] \n \neg: \n||${p}mute @Maalik#0568 10m nsfw\n${p}mute 9847927323847239 10h nsfw||`)
 if (!userOne) return message.channel.send({embeds: [noUserOneMute]});
 
 
@@ -35,7 +37,7 @@ const time = args[1]
 
 const noTimeMute = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`Specify Time`)
+.setDescription(`Specify duration of the mute`)
 if (!time) return message.channel.send({embeds: [noTimeMute]});
 
 var reason = args.slice(2).join(" ")
@@ -68,7 +70,7 @@ if(!memberTwo.kickable) return message.channel.send({embeds: [memberTwoNotKickab
 let role1 = message.guild.roles.cache.find(role => role.name === 'Muted!');
 const noMuteRole = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription("Mute role was not found in this server create one by [prefix]rc-mute")
+.setDescription(`Mute role was not found in this server, create one by ${p}rc-mute`)
 if(!role1) return message.channel.send({embeds: [noMuteRole]})
 
 let role3 = role1.id;
@@ -76,14 +78,14 @@ let role3 = role1.id;
 const alreadyrole = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setTitle("Failed :x:")
-.setDescription(` ${memberTwo.user.tag} Is Already In Mute`)
+.setDescription(` ${memberTwo.user.tag} is already in mute`)
 
 if (memberTwo.roles.cache.has(role3)) return message.channel.send({embeds: [alreadyrole]})
 
 const mutesuccess = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setTitle("Done :white_check_mark:")
-.setDescription(` ${memberTwo.user.tag} Was Muted By ${message.author.tag} For ${time} :white_check_mark:`)
+.setDescription(` ${memberTwo.user.tag} was muted by ${message.author.tag} For ${time}`)
 .setFields([
 {name: "Reason For Mute",
 value: `${reason}`,
@@ -91,19 +93,7 @@ value: `${reason}`,
 
 const mutefail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setTitle("Requested By:-")
-.setDescription(`${message.author.tag}`)
-.setFields([
-{name: "Failed :x:",
-value: `I Couldn't Mute User.\n The Reasons May Be The Following!`,
-},
-{name: "Reason-1",
-value: `I Dont Have Permission Above Him/Her.`,
-},
-{name: "Reason-2",
-value: `If The Server Has Two-Factor Authentication Enabled \n Then The User Who Use The Commands \n Need To Enable Two Factor Authentication \n Inorder To Use Moderation Commands`,
-},
-],)
+.setDescription(`:x: An error occured while muting ${memberTwo.user.username}`)
 
 try {
 await memberTwo.roles.add(role1)
@@ -119,6 +109,8 @@ const tsuccess = new discord.MessageEmbed()
 .setDescription(`${memberTwo.user.tag} Was Unmuted After Being Muted For ${time} by ${message.author.tag}`)
 
 setTimeout(function(){
+  let role2 = memberTwo.roles.cache.find(role => role.name === 'Muted!')
+  if(!role2) return;
   memberTwo.roles.remove(role1)
   message.channel.send({embeds: [tsuccess]});
 },ms(time))
@@ -141,10 +133,10 @@ setTimeout(function(){
   if(!memberOne.kickable) return message.channel.send({embeds: [noPermMute]})
 
 
-  let role1 = message.guild.roles.cache.find(role => role.name === 'Muted!')
+  let role1 = message.guild.roles.cache.find(role => role.name === 'Muted!');
   const noMuteRole = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription("Mute role was not found in this server create one by [prefix]rc-mute")
+  .setDescription(`Mute role was not found in this server create one by ${p}rc-mute`)
   if(!role1) return message.channel.send({embeds: [noMuteRole]})
 
   let role3 = message.guild.roles.cache.find(role => role.name === 'Muted!').id;
@@ -159,7 +151,7 @@ setTimeout(function(){
   const mutesuccess = new discord.MessageEmbed()
   .setColor("RED")
   .setTitle("Done :white_check_mark:")
-  .setDescription(` ${memberOne.user.tag} Was Muted By ${message.author.tag} For ${time} :white_check_mark:`)
+  .setDescription(` ${memberOne.user.tag} was muted by ${message.author.tag} for ${time}`)
   .setFields([
   {name: "Reason For Mute",
   value: `${reason}`,
@@ -167,19 +159,7 @@ setTimeout(function(){
 
   const mutefail = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setTitle("Requested By:-")
-  .setDescription(`${message.author.tag}`)
-  .setFields([
-  {name: "Failed :x:",
-  value: `I Couldn't Mute User.\n The Reasons May Be The Following!`,
-  },
-  {name: "Reason-1",
-  value: `I Dont Have Permission Above Him/Her.`,
-  },
-  {name: "Reason-2",
-  value: `If The Server Has Two-Factor Authentication Enabled \n Then The User Who Use The Commands \n Need To Enable Two Factor Authentication \n Inorder To Use Moderation Commands`,
-  },
-],);
+  .setDescription(`:x: An error occured while muting ${memberOne.user.username}`)
 
    const tsuccess = new discord.MessageEmbed()
   .setColor([227, 114, 237])
@@ -192,6 +172,8 @@ setTimeout(function(){
 
     try {
   setTimeout(function(){
+    let role2 = memberOne.roles.cache.find(role => role.name === 'Muted!')
+    if(!role2) return;
     memberOne.roles.remove(role1)
     message.channel.send({embeds: [tsuccess]});
   },ms(time));
