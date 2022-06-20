@@ -34,7 +34,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Admin',
-    value: " • prefix - changes or sets a prefix for the bot in this server. \n • rc-mute - creates a mute role for the server. \n • counting - sets counting channel. \n • afk-remove - removes someone's inappropriate afk.",
+    value: "• prefix - changes or sets a prefix for the bot in this server. \n• rc-mute - creates a mute role for the server. \n• counting - sets counting channel. \n• afk-remove - removes someone's inappropriate afk.",
     },
     {name: '\u200b',
     value: '\u200b',
