@@ -8,13 +8,15 @@ description: 'help Command',
 
 async execute(message, args){
 
+    const p = await client.prefix(message)
+
     if (!message.member.permissions.has("MODERATE_MEMBERS", "ADMINISTRATOR")) return;
 
 const {guild, channel} = message
 
 const noWarnArg = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription("Use this command to warn a member \n \n Usage:- [Prefix]warn [UserID || UserMention] [Reason]")
+.setDescription(`${p}warn [USER] [REASON] \n \neg: \n||${p}warn @Maalik#0568 nsfw \n${p}warn 9847927323847239 nsfw||`)
 if(!args[0]) return message.channel.send({embeds: [noWarnArg]});
 
 const userOne = message.mentions.users.first();
@@ -25,7 +27,7 @@ if(!userOne) {
   try{
   let memberOne = await guild.members.fetch(userTwo);
 
- if(memberOne.roles.highest.position > message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**"); 
+ if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**");
 
   const warnEmbed = new discord.MessageEmbed()
   .setColor([227, 114, 237])
@@ -47,7 +49,7 @@ if(!userOne) {
 } else {
 const memberTwo = guild.members.cache.get(userOne.id)
 
- if(memberTwo.roles.highest.position > message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**"); 
+ if(memberTwo.roles.highest.position > message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**");
 
 const warnEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])

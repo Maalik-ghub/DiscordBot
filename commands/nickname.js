@@ -7,6 +7,10 @@ description: "nick commands",
 
 async execute(message , args) {
 
+
+  const p = await client.prefix(message)
+
+
   const {guild, channel} = message
 
                         //PERMISSION CHECKS
@@ -18,17 +22,26 @@ async execute(message , args) {
   .setDescription(`<a:AE_Failed:976848289691488316> Please Enable **MANAGE_NICKNAMES** Pemission For Me`)
   if (!message.channel.permissionsFor(message.client.user).has("MANAGE_NICKNAMES")) return message.channel.send({embeds: [noNickPerms]});
 
+  const usageEmbed = new discord.MessageEmbed()
+  .setColor([227, 114 ,237])
+  .setDescription(`${p}nick [USER] [NEW-NAME] \n \neg: \n||${p}nick @Maalik#0658 Malik||`)
+  if(!args[0]) return message.channel.send({embeds: [usageEmbed]})
 
     var user = message.mentions.users.first()
-    if (!user) {
-      user = message.member.user
-    };
+
+    const noUser = new discord.MessageEmbed()
+    .setColor([227, 114 ,237])
+    .setDescription(`Mention a member to changer their nickname.`)
+    if(!user) return message.channel.send({embeds: [noUser]})
+
     const member = guild.members.cache.get(user.id);
 
 
 let nickname = args.slice(1).join(" ")
-
-if(!nickname) return message.channel.send("` Specify A Nickname To Change Nickname... `");
+const noNickname = new discord.MessageEmbed()
+.setColor([227, 114 ,237])
+.setDescription(`Provide a new name to change the old one`)
+if(!nickname) return message.channel.send({embeds: [noNickname]});
 
 const nickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])

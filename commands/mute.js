@@ -59,6 +59,11 @@ if(!memberTwo) {
   return
 };
 
+const higherRole = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You can't mute ${memberTwo.user.username}`)
+if(memberTwo.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
+
 console.log(memberTwo.user.username);
 
 const memberTwoNotKickableMute = new discord.MessageEmbed()
@@ -126,6 +131,11 @@ setTimeout(function(){
    /* IF MENTIONS THEN IT TRIGGERS THIS COMMAND */
 
    let memberOne = guild.members.cache.get(userTwo.id)
+
+   const higherRole = new discord.MessageEmbed()
+   .setColor([227, 114, 237])
+   .setDescription(`You can't mute ${memberOne.user.username}`)
+  if(memberOne.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
    const noPermMute = new discord.MessageEmbed()
    .setColor([227, 114, 237])

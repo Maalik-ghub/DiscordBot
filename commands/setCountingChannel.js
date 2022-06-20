@@ -8,8 +8,15 @@ description: '8ball Command',
 
 async execute (message , args) {
 
+    const p = await client.prefix(message)
+
    if(!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
    if (!message.member.permissions.has("ADMINISTRATOR")) return;
+
+   const usageEmbed = new discord.MessageEmbed()
+   .setColor([227, 114 ,237])
+   .setDescription(`${p}counting [ENABLE || DISABLE] [CHANNEL] [AMOUNT**(Optional)**] \n \neg: \n||${p}counting enable #counting \n${p}counting enable #counting 10 \n${p}counting disable #counting||`)
+   if(!args[0]) return message.channel.send({embeds: [usageEmbed]})
 
 let count;
    if(args[0] === `enable`){
