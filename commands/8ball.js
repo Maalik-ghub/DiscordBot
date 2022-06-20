@@ -26,7 +26,7 @@ const result = Math.floor((Math.random() * roast.length));
 
 const dumb = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}8ball [QUESTION] \n \neg: ||${p}8ball am i a good bot?||`)
+.setDescription(`${p}8ball [QUESTION] \n \neg: \n||${p}8ball am i a good bot?||`)
 
 const ball = new discord.MessageEmbed()
 .setColor([227, 114, 237])

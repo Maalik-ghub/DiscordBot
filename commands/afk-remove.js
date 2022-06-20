@@ -17,7 +17,7 @@ async execute (message , args) {
 
 const helpEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}afk-remove [USER] \n \neg: ||${p}afk-remove @Maalik#0568||`)
+.setDescription(`${p}afk-remove [USER] \n \neg: \n||${p}afk-remove @Maalik#0568||`)
 if(!args[0]) return message.channel.send({embeds: [helpEmbed]})
 
 

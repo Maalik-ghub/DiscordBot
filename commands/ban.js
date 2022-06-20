@@ -26,7 +26,7 @@ const userTwo = message.mentions.users.first()
 
 const usageEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}ban [USER] [REASON] \n \neg: \n ||${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw||`)
+.setDescription(`${p}ban [USER] [REASON] \n \neg: \n||${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw||`)
 if(!userOne) return message.channel.send({embeds: [usageEmbed]});
 
 var reason = args.slice(1).join(" ")
@@ -44,7 +44,7 @@ if (!reason) {
  const higherRole = new discord.MessageEmbed()
  .setColor([227, 114, 237])
  .setDescription(`You can't ban ${memberTwo.user.username}`)
-if(memberTwo.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send();
+if(memberTwo.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
@@ -93,7 +93,10 @@ memberTwo.send({embeds: [kickdoneDM]});
 
   let memberOne = guild.members.cache.get(userTwo.id)
 
- if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**");
+  const higherRole = new discord.MessageEmbed()
+  .setColor([227, 114, 237])
+  .setDescription(`You can't ban ${memberOne.user.username}`)
+ if(memberOne.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
  const kickfail = new discord.MessageEmbed()
  .setColor([227, 114, 237])

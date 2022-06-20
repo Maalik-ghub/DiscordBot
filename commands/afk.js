@@ -22,7 +22,7 @@ const p = await client.prefix(message)
 
 const helpEmbed = new discord.MessageEmbed()
 .setColor([227, 114 ,237])
-.setDescription(`${p}afk [REASON] \n \neg: ||${p}afk I'll be right back||`)
+.setDescription(`${p}afk [REASON] \n \neg: \n||${p}afk I'll be right back||`)
 if(!args[0]) return message.channel.send({embeds: [helpEmbed]})
 
   const reason = args.join(" ") || "AFK";

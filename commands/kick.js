@@ -20,6 +20,11 @@ if (!message.channel.permissionsFor(message.client.user).has("KICK_MEMBERS")) re
 
 const userOne = args[0];
 
+const usageEmbed = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`${p}kick [USER] [REASON] \n \neg: \n||${p}kick @Maalik#0568 nsfw \n${p}kick 9847927323847239 nsfw||`)
+if(!userOne) return message.channel.send({embeds: [usageEmbed]});
+
 const userTwo = message.mentions.users.first()
 
 if(!userTwo) {
@@ -34,31 +39,29 @@ if (!reason) {
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setTitle("Requested By:-")
-.setDescription(`${message.author.tag}`)
-.setFields([
-{name: "Failed :x:",
-value: `I Couldn't Kick User.\n The Reasons May Be The Following!`,
-},
-{name: "Reason-1",
-value: `I Dont Have Permission Above Him/Her.`,
-},
-{name: "Reason-2",
-value: `If The Server Has Two-Factor Authentication Enabled \n Then The User Who Use The Commands \n Need To Enable Two Factor Authentication \n Inorder To Use Moderation Commands`,
-},
-],)
+.setDescription(`:x: An error occured while banning ${memberTwo.user.username}`)
 
 if(!memberTwo.kickable) return message.channel.send({embeds: [kickfail]});
 
 const kickdone = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setTitle("Done :white_check_mark:")
-.setDescription(` ${memberTwo.user.tag} Was Kicked By ${message.author.tag} `)
+.setDescription(` ${memberTwo.user.tag} was kicked by ${message.author.tag} `)
 .setFields([
 {name: "Reason For Kick",
 value: `${reason}`,
 },
 ])
+
+
+const kickdoneDM = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You were kicked from ${message.guild.name} by ${message.author.tag}`)
+.setFields([
+{name: "Reason For Kick",
+value: `${reason}`,
+},
+]);
 
 
 try {
@@ -67,7 +70,7 @@ await memberTwo.kick()
 return message.channel.send({embeds: [kickfail]});
   }
   message.channel.send({embeds: [kickdone]});
-  return;
+  memberTwo.send({embeds: [kickdoneDM]})
 } catch(err) {
   console.log(err)
   const noMemberOne = new discord.MessageEmbed()
@@ -93,32 +96,28 @@ if (!reason) {
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setTitle("Requested By:-")
-.setDescription(`${message.author.tag}`)
-.setFields([
-{name: "Failed :x:",
-value: `I Couldn't Kick User.\n The Reasons May Be The Following!`,
-},
-{name: "Reason-1",
-value: `I Dont Have Permission Above Him/Her.`,
-},
-{name: "Reason-2",
-value: `If The Server Has Two-Factor Authentication Enabled \n Then The User Who Use The Commands \n Need To Enable Two Factor Authentication \n Inorder To Use Moderation Commands`,
-},
-],)
+.setDescription(`:x: An error occured while banning ${memberOne.user.username}`)
 
 if(!memberOne.kickable) return message.channel.send({embeds: [kickfail]});
 
 const kickdone = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setTitle("Done :white_check_mark:")
-.setDescription(` ${userOne.tag} Was Kicked By ${message.author.tag} `)
+.setDescription(` ${userOne.tag} was kicked by ${message.author.tag} `)
 .setFields([
 {name: "Reason For Kick",
 value: `${reason}`,
 },
 ])
 
+const kickdoneDM = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You were kicked from ${message.guild.name} by ${message.author.tag}`)
+.setFields([
+{name: "Reason For Kick",
+value: `${reason}`,
+},
+]);
 
 try {
 await memberOne.kick()
@@ -126,5 +125,6 @@ await memberOne.kick()
 return message.channel.send({embeds: [kickfail]});
   }
   message.channel.send({embeds: [kickdone]});
+  memberOne.send({embeds: [kickdoneDM]});
  }
  };
