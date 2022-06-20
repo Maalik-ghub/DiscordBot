@@ -42,7 +42,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Moderation',
-    value: "**• clear - **deletes messages as a bulk.\n•** ban - **bans a member from this server.\n•** unban - **unbans a member from this server.\n•** mute - **mutes a member in this server for a specified time.\n•** unmute - **unmutes a members from this server.\n•** kick - **kicks a member from this server.\n•**warn - **warns a member in dms.\n•** nickreset - **resets inappropriate nicknames of a member.",
+    value: "**• clear - **deletes messages as a bulk.\n•** ban - **bans a member from this server.\n•** unban - **unbans a member from this server.\n•** mute - **mutes a member in this server for a specified time.\n•** unmute - **unmutes a members from this server.\n•** kick - **kicks a member from this server.\n•** warn - **warns a member in dms.\n•** nickreset - **resets inappropriate nicknames of a member.",
     },
     {name: '\u200b',
     value: '\u200b',
