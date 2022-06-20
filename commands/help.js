@@ -34,10 +34,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Admin',
-    value: '• prefix \n 
-• rc-mute, \n 
-• counting, \n 
-• afk-remove',
+    value: '• prefix,\n • rc-mute, \n • counting, \n • afk-remove',
     },
     {name: '\u200b',
     value: '\u200b',
@@ -45,42 +42,21 @@ const exampleEmbed3 = new discord.MessageEmbed()
     },
     {
     name: 'Moderation',
-    value: '• clear,\n
-• ban,\n
-• unban,\n
-• mute,\n
-• unmute,\n
-• kick,\n
- •warn,\n
-• nickreset',
+    value: '• clear,\n• ban,\n• unban,\n• mute,\n• unmute,\n• kick,\n •warn,\n• nickreset',
     },
     {name: '\u200b',
     value: '\u200b',
     inline: false,
     },
     {name: 'Fun ',
-    value: '• 8ball,\n
-• roast,\n
-• kill,\n
-• slap,\n
-• punch,\n
-• hug,\n
-• kiss,\n
-• pat,\n
-• say',
+    value: '• 8ball,\n• roast,\n• kill,\n• slap,\n• punch,\n• hug,\n• kiss,\n• pat,\n• say',
     },
     {name: '\u200b',
     value: '\u200b',
     inline: false,
     },
     {name: 'Others ',
-    value: '• ping,\n
-• userinfo,\n
-• roles,\n
-• avatar,\n
-• nick,\n
-• afk,\n
-• banner',
+    value: '• ping,\n• userinfo,\n• roles,\n• avatar,\n• nick,\n• afk,\n• banner',
     },
     {name: '\u200b',
     value: '\u200b',
