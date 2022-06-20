@@ -7,6 +7,7 @@ description: "kick commands",
 
 async execute(message , args) {
 
+const p = await client.prefix(message)
 
   const {guild, channel} = message
                         //PERMISSION CHECKS
