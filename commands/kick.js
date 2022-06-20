@@ -126,10 +126,6 @@ await memberOne.kick()
 return message.channel.send({embeds: [kickfail]});
   }
   message.channel.send({embeds: [kickdone]});
-  try{
-  memberOne.send({embeds: [kickdoneDM]});
-}catch(err){
-  console.log(err);
-}
+await memberOne.send({embeds: [kickdoneDM]});
  }
  };
