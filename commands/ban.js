@@ -12,10 +12,10 @@ const p = await client.prefix(message)
                         //PERMISSION CHECKS
 if (!message.channel.permissionsFor(message.author).has("BAN_MEMBERS")) return;
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
+if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 const noBanPerms = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`<a:AE_Failed:976848289691488316> Please Enable **BAN_MEMBERS** Pemission For Me`)
+.setDescription(`:x: Please Enable **BAN_MEMBERS** Pemission For Me`)
 if (!message.channel.permissionsFor(message.client.user).has("BAN_MEMBERS")) return message.channel.send({embeds: [noBanPerms]});
 
 const {guild, channel} = message
@@ -26,7 +26,7 @@ const userTwo = message.mentions.users.first()
 
 const usageEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`**This Command Bans A Member From This Server** <a:AE_Ban:977158440730382376>. \n \n Usage:- \n ${p}ban [**UserID** || **UserMention**]`)
+.setDescription(`${p}ban [USER] [REASON] \n \neg: ||${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw||`)
 if(!userOne) return message.channel.send({embeds: [usageEmbed]});
 
 var reason = args.slice(1).join(" ")
@@ -40,31 +40,31 @@ if (!reason) {
  if(!userTwo) {
  try {
  let memberTwo = await guild.members.fetch(userOne);
-     
-      if(memberTwo.user.roles.highest.position > message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**"); 
+
+ const higherRole = new discord.MessageEmbed()
+ .setColor([227, 114, 237])
+ .setDescription(`You can't ban ${memberTwo.user.username}`)
+if(memberTwo.user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send();
 
 const kickfail = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setTitle("Requested By:-")
-.setDescription(`${message.author.tag}`)
-.setFields([
-{name: "Failed :x:",
-value: `I Couldn't Ban Member.\n The Reasons May Be The Following!`,
-},
-{name: "Reason-1",
-value: `I Dont Have Permission Above Him/Her.`,
-},
-{name: "Reason-2",
-value: `If The Server Has Two-Factor Authentication Enabled \n Then The User Who Use The Commands \n Need To Enable Two Factor Authentication \n Inorder To Use Moderation Commands`,
-},
-],);
+.setDescription(`:x: An error occured while banning ${memberTwo.user.username}`)
 
 if(!memberTwo.kickable) return message.channel.send({embeds: [kickfail]});
 
 const kickdone = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setTitle("Done :white_check_mark:")
-.setDescription(` ${memberTwo.user.tag} Was Banned By ${message.author.tag} `)
+.setDescription(` ${memberTwo.user.tag} was banned by ${message.author.tag} `)
+.setFields([
+{name: "Reason For Ban",
+value: `${reason}`,
+},
+]);
+
+const kickdoneDM = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You were banned in ${message.guild.name} by ${message.author.tag}`)
 .setFields([
 {name: "Reason For Ban",
 value: `${reason}`,
@@ -80,6 +80,7 @@ return message.channel.send({embeds: [kickfail]});
 }
 
 message.channel.send({embeds: [kickdone]});
+memberTwo.send({embeds: [kickdoneDM]});
 
 } catch(err) {
   const noMemberOne = new discord.MessageEmbed()
@@ -92,34 +93,31 @@ message.channel.send({embeds: [kickdone]});
 
   let memberOne = guild.members.cache.get(userTwo.id)
 
- if(memberOne.roles.highest.position > message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**"); 
-  
+ if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**");
+
  const kickfail = new discord.MessageEmbed()
  .setColor([227, 114, 237])
- .setTitle("Requested By:-")
- .setDescription(`${message.author.tag}`)
- .setFields([
- {name: "Failed :x:",
- value: `I Couldn't Ban Member.\n The Reasons May Be The Following!`,
- },
- {name: "Reason-1",
- value: `I Dont Have Permission Above Him/Her.`,
- },
- {name: "Reason-2",
- value: `If The Server Has Two-Factor Authentication Enabled \n Then The User Who Use The Commands \n Need To Enable Two Factor Authentication \n Inorder To Use Moderation Commands`,
- },
- ],)
- .setTimestamp();
+ .setDescription(`:x: An error occured while banning ${memberOne.user.username}`)
 
  const kickdone = new discord.MessageEmbed()
  .setColor([227, 114, 237])
  .setTitle("Done :white_check_mark:")
- .setDescription(` ${userTwo.tag} Was Banned By ${message.author.tag} `)
+ .setDescription(` ${userTwo.tag} was banned by ${message.author.tag} `)
  .setFields([
  {name: "Reason For Ban",
  value: `${reason}`,
  },
  ])
+
+ const kickdoneDM = new discord.MessageEmbed()
+ .setColor([227, 114, 237])
+ .setDescription(`You were banned in ${message.guild.name} by ${message.author.tag}`)
+ .setFields([
+ {name: "Reason For Ban",
+ value: `${reason}`,
+ },
+ ]);
+
 
  try {
  await memberOne.ban();
@@ -128,6 +126,7 @@ message.channel.send({embeds: [kickdone]});
  }
 
  message.channel.send({embeds: [kickdone]});
+ memberOne.send({embeds: [kickdoneDM]})
 }
 }
 };

@@ -13,10 +13,10 @@ const { guild, channel } = message
 
                         //PERMISSION CHECKS
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(` Please Enable **EMBED_LINKS** Pemission For Me`);
+if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 
-const roast = ([`Yes <a:AE_Done:976848494205759508>.`,
-                  `No <a:AE_Failed:976848289691488316>.`,
+const roast = ([`Yes :white_check_mark:`,
+                  `No :x:`,
                   `I don't think so.`,
                   `Did you really aksed that? No,for sure.`,
                 `Maybe...`,
@@ -26,7 +26,7 @@ const result = Math.floor((Math.random() * roast.length));
 
 const dumb = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}8ball [QUESTION] \n \n'eg: ${p}8ball am i a good bot?'`)
+.setDescription(`${p}8ball [QUESTION] \n \neg: ||${p}8ball am i a good bot?||`)
 
 const ball = new discord.MessageEmbed()
 .setColor([227, 114, 237])

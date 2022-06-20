@@ -14,7 +14,7 @@ const p = await client.prefix(message)
 
                         //PERMISSION CHECKS
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
+  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
   const noNickPerms = new discord.MessageEmbed()
   .setColor([227, 114, 237])
   .setDescription(`Please Enable **MANAGE_NICKNAMES** Pemission For Me`)
@@ -22,7 +22,7 @@ const p = await client.prefix(message)
 
 const helpEmbed = new discord.MessageEmbed()
 .setColor([227, 114 ,237])
-.setDescription(`${p}afk [REASON] \n \n'eg: ${p} I'll be right back'`)
+.setDescription(`${p}afk [REASON] \n \neg: ||${p}afk I'll be right back||`)
 if(!args[0]) return message.channel.send({embeds: [helpEmbed]})
 
   const reason = args.join(" ") || "AFK";
