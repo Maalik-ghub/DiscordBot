@@ -49,7 +49,7 @@ const exampleEmbed3 = new discord.MessageEmbed()
     inline: false,
     },
     {name: 'Fun ',
-    value: "•** 8ball - **answers your questions.\n•** roast - **roasts someone to bones for you. \n•** kill - **kill and make someone a ghost. \n•** slap - **slap someone. \n•** punch - **punch someone.\n•** hug - **hug someone.\n•** kiss - **kiss someone\n•** pat - **pats someone\n•** say - **make the bot say something.",
+    value: "•** 8ball - **answers your questions.\n•** roast - **roasts someone to bones for you. \n•** kill - **kill and make someone a ghost. \n•** slap - **slap someone. \n•** punch - **punch someone.\n•** hug - **hug someone.\n•** kiss - **kiss someone\n•** pat - **pats someone.\n•** blush - **makes you blush.\n•** gayrate - **shows how gay is someone.\n•** ship - **find someone's chances with someone else.\n•** say - **make the bot say something.",
     },
     {name: '\u200b',
     value: '\u200b',
