@@ -12,7 +12,7 @@ async execute(message, args){
 
                 //PERMISSIONS CHECK
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
+if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 const noReactionPerms = new discord.MessageEmbed()
 .setColor([227, 114, 237])
 .setDescription(`:x: Please Enable **ADD_REACTIONS** Pemission For Me`)

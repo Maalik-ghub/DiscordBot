@@ -14,10 +14,10 @@ async execute(message , args) {
                         //PERMISSION CHECKS
   if (!message.channel.permissionsFor(message.member).has("MODERATE_MEMBERS")) return;
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send("<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me");
+  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(":x: Please Enable **EMBED_LINKS** Pemission For Me");
   const noMutePerms = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription(`<a:AE_Failed:976848289691488316> Please Enable **TIMEOUT_MEMBERS** Pemission For Me`)
+  .setDescription(`:x: Please Enable **TIMEOUT_MEMBERS** Pemission For Me`)
   if (!message.channel.permissionsFor(message.client.user).has("MODERATE_MEMBERS")) return message.channel.send({embeds: [noMutePerms]});
 
  const userOne = args[0]

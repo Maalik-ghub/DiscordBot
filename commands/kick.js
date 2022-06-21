@@ -13,10 +13,10 @@ const p = await client.prefix(message)
                         //PERMISSION CHECKS
 if (!message.member.permissions.has("KICK_MEMBERS")) return;
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`Please Enable **EMBED_LINKS** Pemission For Me`);
+if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 const noKickPerms = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`Please Enable **KICK_MEMBERS** Pemission For Me`)
+.setDescription(`:x: Please Enable **KICK_MEMBERS** Pemission For Me`)
 if (!message.channel.permissionsFor(message.client.user).has("KICK_MEMBERS")) return message.channel.send({embeds: [noKickPerms]});
 
 const userOne = args[0];
@@ -31,6 +31,11 @@ const userTwo = message.mentions.users.first()
 if(!userTwo) {
 try {
 let memberTwo = await guild.members.fetch(userOne);
+
+const higherRole = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You can't kick ${memberTwo.user.username}`)
+if(memberTwo.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
 var reason = args.slice(1).join(" ")
 
@@ -88,6 +93,10 @@ if(!userOne) return message.channel.send({embeds: [noMember]})
 
 const memberOne = guild.members.cache.get(userTwo.id)
 
+const higherRole = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You can't kick ${memberOne.user.username}`)
+if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
 var reason = args.slice(1).join(" ")
 

@@ -11,7 +11,7 @@ async execute(message, args, client){
 
                         //PERMISSION CHECKS
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
+  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 
 
 message.channel.send("` Searching For Ping...... `:mag:").then((resultMessage) => {
@@ -27,7 +27,7 @@ const ping = new discord.MessageEmbed()
 .setTitle("Pong :ping_pong: ")
 .setDescription("**.............**")
 .setFields([{
-name: "Bot Latency <:AE_BotDeveloper:974335417241440256> ",
+name: "Bot Latency ",
 value: `${latency}ms`
 },
 {

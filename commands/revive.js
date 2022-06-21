@@ -13,10 +13,10 @@ async execute(message, args){
 
                         //PERMISSION CHECKS
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
+  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
       const noNickPerms = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription(`<a:AE_Failed:976848289691488316> Please Enable **MANAGE_NICKNAMES** Pemission For Me`)
+  .setDescription(`:x: Please Enable **MANAGE_NICKNAMES** Pemission For Me`)
   if (!message.channel.permissionsFor(message.client.user).has("MANAGE_NICKNAMES")) return message.channel.send({embeds: [noNickPerms]});
 
  var user = message.mentions.users.first() || message.channel.send("**:x: ┃ Mention the member you wanna revive.**")

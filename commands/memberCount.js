@@ -17,7 +17,7 @@ async execute(message, args){
 
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
 
-  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send("<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me");
+  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(":x: Please Enable **EMBED_LINKS** Pemission For Me");
 
 
 async function memberCount() {

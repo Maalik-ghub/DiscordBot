@@ -27,7 +27,10 @@ if(!userOne) {
   try{
   let memberOne = await guild.members.fetch(userTwo);
 
- if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**");
+  const higherRole = new discord.MessageEmbed()
+  .setColor([227, 114, 237])
+  .setDescription(`You can't warn ${memberOne.user.username}`)
+ if(memberOne.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
   const warnEmbed = new discord.MessageEmbed()
   .setColor([227, 114, 237])
@@ -36,7 +39,7 @@ if(!userOne) {
 
   const successWarn = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription(`<a:AE_Done:976848494205759508> Successfully Warned ${memberOne} For:- \n \n ${reason}`)
+  .setDescription(`Successfully Warned ${memberOne}`)
   message.channel.send({embeds: [successWarn]})
 
 } catch(err) {
@@ -49,7 +52,10 @@ if(!userOne) {
 } else {
 const memberTwo = guild.members.cache.get(userOne.id)
 
- if(memberTwo.roles.highest.position > message.member.roles.highest.position) return message.channel.send("<a:AE_Failed:976848289691488316> ┃** You can't warn that user.**");
+const higherRole = new discord.MessageEmbed()
+.setColor([227, 114, 237])
+.setDescription(`You can't warn ${memberTwo.user.username}`)
+if(memberTwo.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({embeds: [higherRole]});
 
 const warnEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])

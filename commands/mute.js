@@ -17,10 +17,10 @@ const {guild, channel} = message
                         //PERMISSION CHECKS
   if (!message.member.permissions.has("MODERATE_MEMBERS", "ADMINISTRATOR")) return;
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`<a:AE_Failed:976848289691488316> Please Enable **EMBED_LINKS** Pemission For Me`);
+  if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
   const noMutePerms = new discord.MessageEmbed()
   .setColor([227, 114, 237])
-  .setDescription(`<a:AE_Failed:976848289691488316> Please Enable **TIMEOUT_MEMBERS** Pemission For Me`)
+  .setDescription(`:x: Please Enable **TIMEOUT_MEMBERS** Pemission For Me`)
   if (!message.channel.permissionsFor(message.client.user).has("MODERATE_MEMBERS")) return message.channel.send({embeds: [noMutePerms]});
 
 let  userOne = args[0];
