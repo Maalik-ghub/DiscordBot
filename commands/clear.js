@@ -14,7 +14,7 @@ async execute(message, args){
   const { guild, channel } = message
 
                         //PERMISSION CHECKS
-if (!message.member.permissions.has("MANAGE_MESSAGES")) return;
+if (!message.member.permissions.has("MANAGE_MESSAGES", "ADMINISTRATOR")) return;
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
 if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 const noDeletePerms = new discord.MessageEmbed()
@@ -29,7 +29,7 @@ const member = guild.members.cache.get(user.id)
  let deleteAmount;
  const noDeleteAmount = new discord.MessageEmbed()
  .setColor([227 ,114 ,237])
- .setDescription(`${p}clear [AMOUNT] \n \neg: \n||${p}clear 100||`)
+ .setDescription(`${p}clear [AMOUNT] \n \neg: \n${p}clear 100`)
  if(!args[0]) return message.channel.send({embeds: [noDeleteAmount]})
 
  if (parseInt(args[0]) < 1 || parseInt(args[0]) > 100 ) {

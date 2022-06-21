@@ -7,10 +7,12 @@ description: "unBan commands",
 
 async execute(message , args) {
 
+  const p = await client.prefix(message)
+
   const {guild, channel} = message
 
                         //PERMISSION CHECKS
-  if (!message.channel.permissionsFor(message.author).has("BAN_MEMBERS")) return;
+  if (!message.channel.permissionsFor(message.author).has("BAN_MEMBERS", "ADMINISTRATOR")) return;
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
   if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(":x: Please Enable **EMBED_LINKS** Pemission For Me");
   const noBanPerms = new discord.MessageEmbed()
@@ -21,11 +23,10 @@ async execute(message , args) {
 
 const user = args[0]
 
-const noIDGiven = new discord.MessageEmbed()
+const usageEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`Please Provide the ID of someone to unban them \n Usage:- \n \n '[Prefix]unban [UserID]'`)
-
-if (!user) return message.channel.send({embeds: [noIDGiven]})
+.setDescription(`${p}unban [USER]\n \neg:\n${p}unban 9847927323847239 nsfw`)
+if(!user) return message.channel.send({embeds: [usageEmbed]});
 
 const noUsersInBan = new discord.MessageEmbed()
 .setColor([227, 114, 237])
@@ -36,7 +37,7 @@ const thatUserNotInBan = new discord.MessageEmbed()
 .setDescription(`This User Is Not Banned or The Id Stated Is Wrong..🚫`)
 
 message.guild.bans.fetch().then(async bans => {
-  if (bans.size === 0) return message.channel.send({embeds: noUsersInBan});
+  if (bans.size === 0) return message.channel.send({embeds: [noUsersInBan]});
   let bUser = bans.find(b => b.user.id === user);
   if (!bUser) return message.channel.send({embeds: [thatUserNotInBan]})
 

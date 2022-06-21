@@ -15,7 +15,7 @@ async execute (message , args) {
 
    const usageEmbed = new discord.MessageEmbed()
    .setColor([227, 114 ,237])
-   .setDescription(`${p}counting [ENABLE || DISABLE] [CHANNEL] [AMOUNT**(Optional)**] \n \neg: \n||${p}counting enable #counting \n${p}counting enable #counting 10 \n${p}counting disable #counting||`)
+   .setDescription(`${p}counting [ENABLE | DISABLE] [CHANNEL] [AMOUNT**(Optional)**] \n \neg: \n${p}counting enable #counting \n${p}counting enable #counting 10 \n${p}counting disable #counting`)
    if(!args[0]) return message.channel.send({embeds: [usageEmbed]})
 
 let count;
@@ -28,7 +28,7 @@ let count;
         const data = counting.get(message.guild.id+countingChannel);
         if(data){
           [timestamp, count, countingChannel] = data;
-             message.channel.send(`The counting channel already exists. \n Please remove it with the command: \n !counting remove-channel ${countingChannel}. \n`);
+             message.channel.send(`The counting channel already exists. \n Please remove it with the command: \n ${p}counting remove-channel ${countingChannel}. \n`);
              return;
         } else {
             let count = parseInt(args[2]);

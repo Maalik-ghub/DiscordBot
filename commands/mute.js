@@ -29,7 +29,7 @@ let userTwo = message.mentions.users.first();
 
 const noUserOneMute = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}mute [USER] [DURATION] [REASON] \n \neg: \n||${p}mute @Maalik#0568 10m nsfw\n${p}mute 9847927323847239 10h nsfw||`)
+.setDescription(`${p}mute [USER] [DURATION] [REASON] \n \neg: \n${p}mute @Maalik#0568 10m nsfw\n${p}mute 9847927323847239 10h nsfw`)
 if (!userOne) return message.channel.send({embeds: [noUserOneMute]});
 
 

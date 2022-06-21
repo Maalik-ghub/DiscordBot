@@ -10,7 +10,7 @@ async execute(message , args) {
 const p = await client.prefix(message)
 
                         //PERMISSION CHECKS
-if (!message.channel.permissionsFor(message.author).has("BAN_MEMBERS")) return;
+if (!message.channel.permissionsFor(message.author).has("BAN_MEMBERS", "ADMINISTRATOR")) return;
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
 if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 const noBanPerms = new discord.MessageEmbed()
@@ -26,7 +26,7 @@ const userTwo = message.mentions.users.first()
 
 const usageEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}ban [USER] [REASON] \n \neg: \n||${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw||`)
+.setDescription(`${p}ban [USER] [REASON] \n \neg: \n${p}ban @Maalik#0568 nsfw \n${p}ban 9847927323847239 nsfw`)
 if(!userOne) return message.channel.send({embeds: [usageEmbed]});
 
 var reason = args.slice(1).join(" ")

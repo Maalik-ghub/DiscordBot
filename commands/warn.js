@@ -16,7 +16,7 @@ const {guild, channel} = message
 
 const noWarnArg = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}warn [USER] [REASON] \n \neg: \n||${p}warn @Maalik#0568 nsfw \n${p}warn 9847927323847239 nsfw||`)
+.setDescription(`${p}warn [USER] [REASON] \n \neg: \n${p}warn @Maalik#0568 nsfw \n${p}warn 9847927323847239 nsfw`)
 if(!args[0]) return message.channel.send({embeds: [noWarnArg]});
 
 const userOne = message.mentions.users.first();

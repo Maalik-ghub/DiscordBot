@@ -16,7 +16,6 @@ async execute(message, args){
                         //PERMISSION CHECKS
 
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
-
   if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(":x: Please Enable **EMBED_LINKS** Pemission For Me");
 
 
@@ -28,7 +27,13 @@ async function memberCount() {
     message.channel.setName(`∘˚˳°┃𝚆e𝚕𝚌o𝚖e:˚˳${allMembers}˚˳`)
     }
 
+  let countingChannel;
 
+  countingChannel = message.mentions.channels.first();
+  const noCountingChannel = new discord.MessageEmbed()
+  .setColor([227, 114, 237])
+  .setDescription(`Please mention a channel`)
+  if(!countingChannel) return message.channel.send({embeds: [noCountingChannel]})
 
   let checking = true;
 

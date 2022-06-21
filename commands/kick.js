@@ -11,7 +11,7 @@ const p = await client.prefix(message)
 
   const {guild, channel} = message
                         //PERMISSION CHECKS
-if (!message.member.permissions.has("KICK_MEMBERS")) return;
+if (!message.member.permissions.has("KICK_MEMBERS", "ADMINISTRATOR")) return;
 if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
 if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(`:x: Please Enable **EMBED_LINKS** Pemission For Me`);
 const noKickPerms = new discord.MessageEmbed()
@@ -23,7 +23,7 @@ const userOne = args[0];
 
 const usageEmbed = new discord.MessageEmbed()
 .setColor([227, 114, 237])
-.setDescription(`${p}kick [USER] [REASON] \n \neg: \n||${p}kick @Maalik#0568 nsfw \n${p}kick 9847927323847239 nsfw||`)
+.setDescription(`${p}kick [USER] [REASON] \n \neg: \n${p}kick @Maalik#0568 nsfw \n${p}kick 9847927323847239 nsfw`)
 if(!userOne) return message.channel.send({embeds: [usageEmbed]});
 
 const userTwo = message.mentions.users.first()

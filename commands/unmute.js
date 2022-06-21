@@ -9,10 +9,12 @@ description: "unmute commands",
 
 async execute(message , args) {
 
+  const p = await client.prefix(message)
+
   const {guild, channel} = message
 
                         //PERMISSION CHECKS
-  if (!message.channel.permissionsFor(message.member).has("MODERATE_MEMBERS")) return;
+  if (!message.channel.permissionsFor(message.member).has("MODERATE_MEMBERS", "ADMINISTRATOR")) return;
   if (!message.channel.permissionsFor(message.client.user).has("SEND_MESSAGES")) return;
   if (!message.channel.permissionsFor(message.client.user).has("EMBED_LINKS")) return message.channel.send(":x: Please Enable **EMBED_LINKS** Pemission For Me");
   const noMutePerms = new discord.MessageEmbed()
@@ -21,6 +23,11 @@ async execute(message , args) {
   if (!message.channel.permissionsFor(message.client.user).has("MODERATE_MEMBERS")) return message.channel.send({embeds: [noMutePerms]});
 
  const userOne = args[0]
+
+ const noUserOneMute = new discord.MessageEmbed()
+ .setColor([227, 114, 237])
+ .setDescription(`${p}unmute [USER] \n \neg:\n${p}unmute @Maalik#0568\n${p}unmute 9847927323847239`)
+ if (!userOne) return message.channel.send({embeds: [noUserOneMute]});
 
  const userTwo = message.mentions.users.first()
 
@@ -38,7 +45,7 @@ if(!memberTwo) {
   return
 };
 
-let role2 = message.guild.roles.cache.find(role => role.name === 'Muted!')
+let role2 = memberTwo.roles.cache.find(role => role.name === 'Muted!')
 
 
 if(!role2) return message.channel.send("Looks Like The User Is Not Muted")
@@ -79,7 +86,7 @@ message.channel.send({embeds: [unmutesuccess]})
 
   let memberOne = guild.members.cache.get(userTwo.id)
 
-  let role2 = message.guild.roles.cache.find(role => role.name === 'Muted!')
+  let role2 = memberOne.roles.cache.find(role => role.name === 'Muted!')
 
   if(!role2) return message.channel.send("Looks Like The User Is Not Muted")
 
@@ -112,5 +119,7 @@ message.channel.send({embeds: [unmutesuccess]})
 
   message.channel.send({embeds: [unmutesuccess]})
 }
+}
+};
 }
 };
