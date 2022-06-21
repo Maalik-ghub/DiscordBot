@@ -69,7 +69,7 @@ if(args[0] === `Noelle` || `noelle`) {
     message.channel.send("You are not Kwolloo, Back off.");
         return;
     }
-}
+} else{
 
     const kissEmbed = new discord.MessageEmbed()
    .setColor([227, 114, 237])
@@ -78,5 +78,6 @@ if(args[0] === `Noelle` || `noelle`) {
 
 
   message.channel.send({embeds: [kissEmbed]})
+}
   }
   };
